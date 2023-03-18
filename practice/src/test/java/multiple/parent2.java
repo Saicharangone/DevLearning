@@ -1,2 +1,6 @@
-package multiple;public interface parent2 {
+package multiple;
+
+public interface parent2 {
+    abstract public void debitCards();
+
 }

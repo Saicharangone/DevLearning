@@ -1,2 +1,4 @@
-package PACKAGE_NAME;public class demo2 {
+abstract public class demo2 extends demo{
+
+
 }

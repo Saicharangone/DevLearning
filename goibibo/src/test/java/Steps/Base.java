@@ -1,4 +1,4 @@
-package Pages;
+package Steps;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Base {
     public static WebDriver driver;
+    public static  String TC_id;
     @Before
     public void setupBrowser(){
         System.out.println("&&&&&&&&&&&Before&&&&&&&&&&&&&&&&&&&&&&");
@@ -15,7 +16,7 @@ public class Base {
         driver= new ChromeDriver();
         driver.manage().window().maximize();
     }
-    @After
+   // @After
     public  void closeBrowser(){
         System.out.println("&&&&&&&&&&&&&&After&&&&&&&&&&&&&&&&&&&");
         driver.close();
