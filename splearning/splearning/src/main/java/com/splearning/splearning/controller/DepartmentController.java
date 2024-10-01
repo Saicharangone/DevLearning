@@ -1,23 +1,29 @@
 package com.splearning.splearning.controller;
 
 
+import com.splearning.splearning.Error.DepartmentNotFoundException;
 import com.splearning.splearning.entity.Department;
 import com.splearning.splearning.service.DepartmentService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
 public class DepartmentController {
+
+    Logger log = LoggerFactory.getLogger(DepartmentController.class);
 
     @Autowired
     private DepartmentService departmentService;
 
     @PostMapping("/departments")
     public Department saveDepartment(@RequestBody Department department){
-
+        log.info("Inside Save Department");
         return departmentService.saveDepartment(department);
 
 
@@ -29,7 +35,7 @@ public class DepartmentController {
 
     }
     @GetMapping("/departments/{id}")
-    public Optional<Department> getAllDepartmentId(@PathVariable("id") Long departmentId){
+    public Optional<Department> getAllDepartmentId(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
 
         return departmentService.getAllDepartmentId(departmentId);
 

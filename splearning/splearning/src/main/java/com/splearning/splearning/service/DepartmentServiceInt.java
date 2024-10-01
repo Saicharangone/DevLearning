@@ -1,5 +1,6 @@
 package com.splearning.splearning.service;
 
+import com.splearning.splearning.Error.DepartmentNotFoundException;
 import com.splearning.splearning.entity.Department;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ public interface DepartmentServiceInt {
     public Department saveDepartment(Department department);
     public List<Department> getAllDepartment();
 
-    public Optional<Department> getAllDepartmentId(Long departmentId);
+    public Optional<Department> getAllDepartmentId(Long departmentId) throws DepartmentNotFoundException;
 
     public Department updateDepartmentById(Long departmentId,Department department);
     public List<Department> getAllDepartmentName(String departmentName);

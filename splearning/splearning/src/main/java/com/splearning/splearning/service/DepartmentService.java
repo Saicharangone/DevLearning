@@ -1,6 +1,7 @@
 package com.splearning.splearning.service;
 
 
+import com.splearning.splearning.Error.DepartmentNotFoundException;
 import com.splearning.splearning.Repository.DepartmentRepo;
 import com.splearning.splearning.entity.Department;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,14 @@ public class DepartmentService implements DepartmentServiceInt {
     }
 
     @Override
-    public Optional<Department> getAllDepartmentId(Long departmentId) {
+    public Optional<Department> getAllDepartmentId(Long departmentId) throws DepartmentNotFoundException {
+        Optional<Department> department= departmentRepo.findById(departmentId);
+
+        if(department.equals(null)){
+            throw new DepartmentNotFoundException("Department Not found");
+        }
+
+
         return departmentRepo.findById(departmentId);
     }
 
